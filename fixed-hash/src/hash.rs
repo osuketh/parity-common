@@ -513,7 +513,7 @@ macro_rules! impl_rand_for_fixed_hash {
 
 			/// Assign `self` to a cryptographically random value.
 			pub fn randomize(&mut self) {
-				let mut rng = $crate::rand::OsRng::new().unwrap();
+				let mut rng = $crate::rand::ChaChaRng::new_unseeded();
 				self.randomize_using(&mut rng);
 			}
 
